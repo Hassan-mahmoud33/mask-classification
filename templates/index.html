@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mask Check</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="intro">
+      <p class="eyebrow">IMAGE CLASSIFICATION</p>
+      <h1>هل الصورة فيها كمامة؟</h1>
+      <p class="subtitle">ارفع صورة، والنموذج هيقولك النتيجة في ثواني.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="upload-panel" id="dropZone">
+        <div class="upload-icon">↑</div>
+        <h2>اختار صورة</h2>
+        <p>اضغط هنا أو اسحب الصورة إلى هذا المكان</p>
+        <input id="imageInput" type="file" accept="image/png,image/jpeg,image/jpg">
+        <button class="choose-button" id="chooseButton" type="button">اختيار صورة</button>
+        <span class="file-name" id="fileName">PNG أو JPG</span>
+      </div>
+
+      <div class="preview-panel">
+        <div class="preview-frame empty" id="previewFrame">
+          <img id="previewImage" alt="الصورة المختارة">
+          <span id="emptyState">الصورة ستظهر هنا</span>
+        </div>
+        <button class="predict-button" id="predictButton" type="button" disabled>تحليل الصورة</button>
+      </div>
+    </section>
+
+    <section class="result" id="result" aria-live="polite" hidden>
+      <div class="result-mark" id="resultMark">✓</div>
+      <div>
+        <p class="result-label">النتيجة</p>
+        <h2 id="resultText"></h2>
+        <p class="confidence" id="confidenceText"></p>
+      </div>
+    </section>
+
+    <p class="error" id="errorMessage" role="alert" hidden></p>
+  </main>
+  <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>
