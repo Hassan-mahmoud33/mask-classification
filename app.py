@@ -10,7 +10,7 @@ from fastapi.templating import Jinja2Templates
 from tensorflow.keras.models import load_model
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "mask_best_model.keras"
+MODEL_PATH = BASE_DIR / "models" / "mask_best_model.keras"
 
 app = FastAPI(title="Mask Check API")
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
