@@ -23,11 +23,18 @@ if uploaded is not None :
     st.image( img )
 
 
-    if st.button('Predict') :
+if st.button('Predict'):
 
-        prediction = model.predict( img )
-        result = [ 'With Mask' if prediction >= 0.50 else 'Without Mask']
-        confidence = prediction[0][0] * 100
+    prediction = model.predict(img, verbose=0)
 
-        st.write(f'Prediction: {result[0]}' )
-        st.write(f'Confidence: {confidence:.2f}%')
+    probability = float(prediction[0][0])
+
+    if probability >= 0.50:
+        result = 'With Mask'
+        confidence = probability
+    else:
+        result = 'Without Mask'
+        confidence = 1 - probability
+
+    st.write(f'Prediction: {result}')
+    st.write(f'Confidence: {confidence * 100:.2f}%')
