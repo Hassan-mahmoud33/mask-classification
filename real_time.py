@@ -30,11 +30,7 @@ while cap.isOpened():
         cv2.putText( frame , "Put A Mask" , ( 10 , 120 ) , cv2.FONT_HERSHEY_SIMPLEX , 
             2 , ( 0 ,240 , 0 ) , 5 )
         
-        cv2.putText( frame , "else:" , ( 10 , 170 ) , cv2.FONT_HERSHEY_SIMPLEX , 
-            2 , ( 0 ,0 , 250 ) , 5 )
-        
-        cv2.putText( frame , "I'll ride you" , ( 80 , 220 ) , cv2.FONT_HERSHEY_SIMPLEX , 
-            2 , ( 255 ,0 , 0 ) , 5 )
+
 
     cv2.imshow('Frame' , frame )
     if cv2.waitKey(1) & 0xFF == ord(' '):

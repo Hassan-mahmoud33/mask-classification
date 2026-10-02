@@ -1,8 +1,9 @@
 # Mask Classification
 
-This project detects whether a person is wearing a face mask. It uses a trained TensorFlow/Keras model and provides two ways to test it:
+This project detects whether a person is wearing a face mask. It uses a trained TensorFlow/Keras model and provides three ways to test it:
 
 - A FastAPI web app with an image upload page
+- A real-time webcam script
 - A simple Streamlit app
 
 ## Project structure
@@ -10,7 +11,8 @@ This project detects whether a person is wearing a face mask. It uses a trained 
 ```text
 mask_classification/
 ├── app.py                  # FastAPI application
-├── streamlit.py            # Streamlit application
+├── real_time.py            # Real-time webcam inference
+├── streamlit_app.py        # Streamlit application
 ├── mask1.jpg               # Sample image
 ├── mask2.jpg               # Sample image
 ├── no_mask1.jpg            # Sample image
@@ -18,7 +20,8 @@ mask_classification/
 ├── models/
 │   └── mask_best_model.keras
 ├── dataset/                # Training images
-├── notebooks/              # Training notebooks
+├── notebooks/
+│   └── train_model.ipynb   # Model training notebook
 ├── templates/
 │   └── index.html
 └── static/
@@ -44,7 +47,7 @@ The FastAPI and Streamlit scripts load the model from the `models` folder:
 MODEL_PATH = BASE_DIR / "models" / "mask_best_model.keras"
 ```
 
-For `streamlit.py`, use:
+For `streamlit_app.py`, use:
 
 ```python
 model = load_model("models/mask_best_model.keras")
@@ -115,7 +118,7 @@ Example response:
 
 ```powershell
 cd "C:\Users\B-UNIT\Desktop\computer_vision\image_classification\mask_classification"
-python -m streamlit run streamlit.py
+python -m streamlit run streamlit_app.py
 ```
 
 Streamlit will print the local URL in the terminal, usually:
