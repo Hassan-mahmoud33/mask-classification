@@ -13,10 +13,6 @@ mask_classification/
 ├── app.py                  # FastAPI application
 ├── real_time.py            # Real-time webcam inference
 ├── streamlit_app.py        # Streamlit application
-├── mask1.jpg               # Sample image
-├── mask2.jpg               # Sample image
-├── no_mask1.jpg            # Sample image
-├── no_mask2.jpg            # Sample image
 ├── models/
 │   └── mask_best_model.keras
 ├── dataset/                # Training images
