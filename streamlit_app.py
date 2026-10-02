@@ -6,7 +6,7 @@ import cv2
 
 
 
-model = load_model('mask_best_model.keras')
+model = load_model('../models/mask_best_model.keras')
 
 st.title('Mask Detection')
 
