@@ -6,9 +6,9 @@ import cv2
 
 
 
-model = load_model('../models/mask_best_model.keras')
+model = load_model('models/mask_best_model.keras')
 
-st.title('Mask Detection')
+st.title('Mask Classification')
 
 uploaded = st.file_uploader('Put An Image', type=['jpg' , 'jpeg' , 'png'])
 
@@ -27,6 +27,7 @@ if uploaded is not None :
 
         prediction = model.predict( img )
         result = [ 'With Mask' if prediction >= 0.50 else 'Without Mask']
+        confidence = prediction[0][0] * 100
 
         st.write(f'Prediction: {result[0]}' )
-        st.write(f'Confidance: {np.round( prediction[0][0] , 2 )}%' )
+        st.write(f'Confidence: {confidence:.2f}%')
